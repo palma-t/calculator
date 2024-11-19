@@ -1,29 +1,21 @@
 function add(a, b) {
-   return parseInt(a) + parseInt(b);
+   return parseFloat(a) + parseFloat(b);
 };
   
 function subtract(a, b) {
-    return a - b;
+    return parseFloat(a) - parseFloat(b);
 };
   
-function sum(arr) {
-    return arr.reduce((sum, current) => sum + current, 0)
-};
-  
-function multiply(arr) {
-    return arr.reduce((total, current) => total * current);
+function multiply(a, b) {
+    return parseFloat(a) * parseFloat(b);
 };
 
 function divide(a, b){
-    return a / b;
+    return parseFloat(a) / parseFloat(b);
 };
   
-function factorial(n) {
-  let product = 1;
-  for(let i = n; i > 0; i--) {
-    product *= i;
-    }
-    return product;
+function modulo(a, b) {
+  return parseFloat(a) % parseFloat(b);
 };
 
 function operate(num1, operator, num2){
@@ -42,6 +34,10 @@ function operate(num1, operator, num2){
             break;
         case '/':
             result = divide(num1, num2);
+            return result;
+            break;
+        case '%':
+            result = modulo(num1, num2);
             return result;
             break;
         default:
@@ -91,4 +87,10 @@ clear.addEventListener("click", () => {
     operator = "";
     display.textContent = "";
 }) 
+*/
+
+/* à régler encore :
+- une série d'opérations ;
+- le "clear" ;
+- arrondissement à la fin du résultat si trop de décimales ;
 */
