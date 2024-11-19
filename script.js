@@ -1,5 +1,5 @@
 function add(a, b) {
-   return a + b;
+   return parseInt(a) + parseInt(b);
 };
   
 function subtract(a, b) {
@@ -51,51 +51,44 @@ function operate(num1, operator, num2){
 }
 
 let display = document.querySelector("#result-box");
-let operator;
-let operand1;
-let operand2;
-let operand3;
-let operand4;
-let operand5;
-let operand6;
-let operand7;
-let operand8;
-let operand9;
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
+const dot = document.querySelector(".dot");
+const clear = document.querySelector(".clear");
 
-let seven = document.querySelector("#seven");
-seven.addEventListener("click", ()=> {
-display.textContent = "7";
-operand7 = 7;
+let firstNum = "";
+let secondNum = "";
+let operator = "";
+
+numbers.forEach(number => {
+    number.addEventListener("click", e => {
+        if (operator === "") {
+            firstNum += e.target.innerText;
+            display.textContent = firstNum;
+            console.log(firstNum);
+        } else {
+            secondNum += e.target.innerText;
+            display.textContent = secondNum;
+            console.log(secondNum);
+        }
+    });
 });
 
-let six = document.querySelector("#six");
-six.addEventListener("click", ()=> {
-display.textContent = "6";
-operand6 = 6;
+operators.forEach(op => {
+    op.addEventListener("click", e => {
+        if (e.target.innerText !== "=") {
+            operator = e.target.innerText;
+        } else { // If equals button clicked
+            display.textContent = operate(firstNum, operator, secondNum);
+        }
+    });
 });
 
-let plus = document.querySelector("#plus");
-plus.addEventListener("click", () => {
-    operator = "+";
-});
-
-let multiplication = document.querySelector("#multiplication");
-multiplication.addEventListener("click", () => {
-    operator = "*";
-});
-
-let divisation = document.querySelector("#divisation");
-divisation.addEventListener("click", () => {
-    operator = "/";
-});
-
-let minus = document.querySelector("#minus");
-minus.addEventListener("click", () => {
-    operator = "-";
-});
-
-let equal = document.querySelector("#equal");
-equal.addEventListener("click", () => {
-        display.textContent = operate(operand7, operator, operand6);
-});
-
+/*
+clear.addEventListener("click", () => {
+    firstNum = "";
+    secondNum = "";
+    operator = "";
+    display.textContent = "";
+}) 
+*/
