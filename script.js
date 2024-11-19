@@ -61,11 +61,9 @@ numbers.forEach(number => {
         if (operator === "") {
             firstNum += e.target.innerText;
             display.textContent = firstNum;
-            console.log(firstNum);
         } else {
             secondNum += e.target.innerText;
             display.textContent = secondNum;
-            console.log(secondNum);
         }
     });
 });
@@ -75,7 +73,13 @@ operators.forEach(op => {
         if (e.target.innerText !== "=") {
             operator = e.target.innerText;
         } else { // If equals button clicked
-            display.textContent = operate(firstNum, operator, secondNum);
+            let result = operate(firstNum, operator, secondNum);
+            if(!Number.isInteger(result)){
+                let rounded = Math.round(result * Math.pow(10, 3)) / Math.pow(10, 3);
+                display.textContent = rounded;
+            } else {
+                display.textContent = result;
+            }
         }
     });
 });
@@ -90,8 +94,5 @@ clear.addEventListener("click", () => {
 
 
 /* à régler encore :
-- intégrer la possibilité des points ;
-- une série d'opérations ;
-- le "clear" ;
-- arrondissement à la fin du résultat si trop de décimales ;
+- une série d'opérations ; 
 */
