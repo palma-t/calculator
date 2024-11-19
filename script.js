@@ -50,7 +50,7 @@ let display = document.querySelector("#result-box");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const dot = document.querySelector(".dot");
-const clear = document.querySelector(".clear");
+const clear = document.querySelector("#clear");
 
 let firstNum = "";
 let secondNum = "";
@@ -80,16 +80,17 @@ operators.forEach(op => {
     });
 });
 
-/*
+
 clear.addEventListener("click", () => {
     firstNum = "";
     secondNum = "";
     operator = "";
-    display.textContent = "";
+    display.textContent = "0";
 }) 
-*/
+
 
 /* à régler encore :
+- intégrer la possibilité des points ;
 - une série d'opérations ;
 - le "clear" ;
 - arrondissement à la fin du résultat si trop de décimales ;
