@@ -89,7 +89,7 @@ operators.forEach(op => {
             } else{let result = operate(firstNum, operator, secondNum);
                 operator = e.target.innerText;
                 if(!Number.isInteger(result)){
-                    let rounded = Math.round(result * Math.pow(10, 3)) / Math.pow(10, 3);
+                    let rounded = Math.round(result * Math.pow(10, 6)) / Math.pow(10, 6);
                     display.textContent = rounded;
                 } else {
                     display.textContent = result;
